@@ -41,11 +41,18 @@ Compliance Team
         print(f"Failed to send to {recipient_email}: {str(e)}")
         return False
 
-def main():
-    df = pd.read_csv("sample_anonymized_licensee.csv")
-    df["exam_deadline"] = pd.to_datetime(df["exam_deadline"])
-    today = datetime.now()
 
+def main():
+    # Read the data, ensuring everything is treated cleanly
+    df = pd.read_csv("sample_anonymized_licensee.csv", skipinitialspace=True)
+
+    # Force exact format matching and turn unparseable entries into empty blanks (NaT)
+    df["exam_deadline"] = pd.to_datetime(df["exam_deadline"], format="%Y-%m-%d", errors="coerce")
+
+    # Drop rows where the deadline column didn't have a valid date
+    df = df.dropna(subset=["exam_deadline"])
+
+    today = datetime.now()
     audit_log = []
 
     for index, row in df.iterrows():
