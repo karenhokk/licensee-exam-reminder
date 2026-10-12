@@ -1,0 +1,5 @@
+license_id,masked_email,full_name,exam_deadline,exam_status
+L001,user_***@test.com,Person A,2026-11-15,Not Started
+L002,user_***@test.com,Person B,2026-10-20,Not Started
+L003,user_***@test.com,Person C,2026-10-05,Completed
+L004,user_***@test.com,Person D,2026-11-30,Not Started
