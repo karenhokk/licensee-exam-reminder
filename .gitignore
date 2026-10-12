@@ -1,0 +1,17 @@
+# Real confidential data files
+*_real_data.csv
+production*.csv
+secret*.txt
+
+# Logs
+reminder_audit_log.csv
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env files
+.env
